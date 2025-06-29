@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabarinathan - Research Scientist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #202124;
+            background-color: #ffffff;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e8eaed;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 500;
+            color: #202124;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5f6368;
+            font-weight: 400;
+            transition: color 0.2s ease;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: #1a73e8;
+        }
+
+        /* Main Content */
+        main {
+            padding: 48px 0;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 48px;
+            margin-bottom: 64px;
+            align-items: start;
+        }
+
+        .profile-image-container {
+            position: relative;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            border: 1px solid #e8eaed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5f6368;
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .profile-content h1 {
+            font-size: 48px;
+            font-weight: 400;
+            margin-bottom: 8px;
+            color: #202124;
+            letter-spacing: -0.5px;
+        }
+
+        .profile-content .subtitle {
+            font-size: 20px;
+            color: #5f6368;
+            margin-bottom: 24px;
+            font-weight: 300;
+        }
+
+        .profile-content .affiliation {
+            font-size: 16px;
+            color: #5f6368;
+            margin-bottom: 24px;
+        }
+
+        .profile-links {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .profile-link {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 400;
+            padding: 8px 0;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+            font-size: 14px;
+        }
+
+        .profile-link:hover {
+            border-bottom-color: #1a73e8;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 64px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 32px;
+            color: #202124;
+            letter-spacing: -0.25px;
+        }
+
+        .research-description {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #3c4043;
+            margin-bottom: 24px;
+            max-width: 800px;
+        }
+
+        .research-interests {
+            background: #f8f9fa;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 32px;
+            border-left: 4px solid #1a73e8;
+        }
+
+        /* Publications */
+        .publications-grid {
+            display: grid;
+            gap: 32px;
+        }
+
+        .publication {
+            background: #ffffff;
+            border: 1px solid #e8eaed;
+            border-radius: 8px;
+            padding: 24px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .publication:hover {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .publication-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 16px;
+        }
+
+        .publication-image {
+            width: 120px;
+            height: 80px;
+            background: #f8f9fa;
+            border: 1px solid #e8eaed;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5f6368;
+            font-size: 12px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .publication-info {
+            flex: 1;
+        }
+
+        .publication-title {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #1a73e8;
+            line-height: 1.4;
+            cursor: pointer;
+        }
+
+        .publication-title:hover {
+            text-decoration: underline;
+        }
+
+        .publication-authors {
+            color: #5f6368;
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+
+        .publication-venue {
+            color: #ea4335;
+            font-weight: 500;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .publication-description {
+            color: #3c4043;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .publication-links {
+            margin-top: 12px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .publication-link {
+            color: #1a73e8;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .publication-link:hover {
+            text-decoration: underline;
+        }
+
+        /* News Section */
+        .news-grid {
+            display: grid;
+            gap: 16px;
+            max-width: 800px;
+        }
+
+        .news-item {
+            padding: 16px 0;
+            border-bottom: 1px solid #e8eaed;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            font-size: 14px;
+            color: #5f6368;
+            font-weight: 500;
+            min-width: 100px;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .news-content {
+            color: #3c4043;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Academic Service */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: #f8f9fa;
+            padding: 24px;
+            border-radius: 8px;
+        }
+
+        .service-card h3 {
+            color: #202124;
+            margin-bottom: 16px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-list li {
+            padding: 4px 0;
+            color: #3c4043;
+            font-size: 14px;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .service-list li:before {
+            content: "•";
+            color: #5f6368;
+            position: absolute;
+            left: 0;
+            top: 4px;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            background: #f8f9fa;
+            padding: 32px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            color: #202124;
+            margin-bottom: 16px;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .contact-info p {
+            color: #3c4043;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .contact-email {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-email:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #f8f9fa;
+            border-top: 1px solid #e8eaed;
+            padding: 32px 0;
+            margin-top: 64px;
+            text-align: center;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: #5f6368;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .profile-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 24px;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+                margin: 0 auto;
+            }
+
+            .profile-content h1 {
+                font-size: 36px;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .publication-header {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .publication-image {
+                width: 100%;
+                height: 120px;
+            }
+
+            .news-item {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .news-date {
+                min-width: auto;
+            }
+        }
+
+        /* Animation */
+        .publication {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .publication:nth-child(1) { animation-delay: 0.1s; }
+        .publication:nth-child(2) { animation-delay: 0.2s; }
+        .publication:nth-child(3) { animation-delay: 0.3s; }
+        .publication:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Sabarinathan</a>
+            <ul class="nav-links">
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#service">Service</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Profile Section -->
+        <section class="profile-section">
+            <div class="profile-image-container">
+                <div class="profile-image">
+                    Add your professional photo here (200x200px recommended)
+                </div>
+            </div>
+            <div class="profile-content">
+                <h1>Sabarinathan</h1>
+                <p class="subtitle">Research Scientist</p>
+                <p class="affiliation">Computer Vision & Machine Learning</p>
+                <div class="profile-links">
+                    <a href="mailto:your.email@domain.com" class="profile-link">Email</a>
+                    <a href="https://scholar.google.com/citations?user=YOUR_ID" class="profile-link">Google Scholar</a>
+                    <a href="https://github.com/yourusername" class="profile-link">GitHub</a>
+                    <a href="https://linkedin.com/in/yourprofile" class="profile-link">LinkedIn</a>
+                    <a href="/path/to/your/cv.pdf" class="profile-link">CV</a>
+                </div>
+                <p class="research-description">
+                    I am a research scientist working at the intersection of computer vision, machine learning, and artificial intelligence. 
+                    My research focuses on developing efficient and robust algorithms for real-world applications, with particular emphasis on 
+                    deep learning, neural networks, and computational photography.
+                </p>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="section">
+            <h2 class="section-title">Research</h2>
+            <div class="research-interests">
+                <p>
+                    My current research interests include <strong>neural networks</strong>, <strong>deep learning</strong>, 
+                    <strong>low-level computer vision</strong>, <strong>inverse problems</strong>, <strong>computational photography</strong> 
+                    and <strong>imaging</strong>. I am particularly interested in developing methods that can bridge the gap between 
+                    theoretical advances and practical applications in real-world scenarios.
+                </p>
+            </div>
+            <p class="research-description">
+                <em>How can we change and enhance cameras and visual perception using AI?</em>
+            </p>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="section">
+            <h2 class="section-title">Publications</h2>
+            <div class="publications-grid">
+                
+                <article class="publication">
+                    <div class="publication-header">
+                        <div class="publication-image">
+                            [Project Image]
+                        </div>
+                        <div class="publication-info">
+                            <h3 class="publication-title">Adaptive Neural Networks for Real-Time Image Enhancement</h3>
+                            <p class="publication-authors">Sabarinathan, John Doe, Jane Smith, Senior Author</p>
+                            <p class="publication-venue">Conference on Computer Vision and Pattern Recognition (CVPR), 2025</p>
+                            <p class="publication-description">
+                                We propose a novel approach for real-time image enhancement using adaptive neural networks. 
+                                Our method achieves state-of-the-art performance while maintaining computational efficiency 
+                                suitable for mobile applications.
+                            </p>
+                            <div class="publication-links">
+                                <a href="#" class="publication-link">Paper</a>
+                                <a href="#" class="publication-link">Code</a>
+                                <a href="#" class="publication-link">Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="publication">
+                    <div class="publication-header">
+                        <div class="publication-image">
+                            [Project Image]
+                        </div>
+                        <div class="publication-info">
+                            <h3 class="publication-title">Deep Learning for Computational Photography: A Comprehensive Survey</h3>
+                            <p class="publication-authors">Sabarinathan, Research Team</p>
+                            <p class="publication-venue">IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2024</p>
+                            <p class="publication-description">
+                                A comprehensive survey of deep learning methods in computational photography, covering recent 
+                                advances in image restoration, enhancement, and novel view synthesis.
+                            </p>
+                            <div class="publication-links">
+                                <a href="#" class="publication-link">Paper</a>
+                                <a href="#" class="publication-link">Dataset</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="publication">
+                    <div class="publication-header">
+                        <div class="publication-image">
+                            [Project Image]
+                        </div>
+                        <div class="publication-info">
+                            <h3 class="publication-title">Efficient Neural Image Signal Processing for Mobile Devices</h3>
+                            <p class="publication-authors">Sabarinathan, Industry Collaborators</p>
+                            <p class="publication-venue">International Conference on Computer Vision (ICCV), 2024</p>
+                            <p class="publication-description">
+                                We introduce an efficient neural ISP pipeline optimized for mobile devices, achieving 
+                                professional-quality image processing with minimal computational overhead.
+                            </p>
+                            <div class="publication-links">
+                                <a href="#" class="publication-link">Paper</a>
+                                <a href="#" class="publication-link">Code</a>
+                                <a href="#" class="publication-link">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="publication">
+                    <div class="publication-header">
+                        <div class="publication-image">
+                            [Project Image]
+                        </div>
+                        <div class="publication-info">
+                            <h3 class="publication-title">Learning-Based Image Denoising: Theory and Applications</h3>
+                            <p class="publication-authors">Sabarinathan, Academic Collaborators</p>
+                            <p class="publication-venue">Neural Information Processing Systems (NeurIPS), 2024</p>
+                            <p class="publication-description">
+                                We present a theoretical framework for learning-based image denoising and demonstrate 
+                                its effectiveness across various noise models and real-world scenarios.
+                            </p>
+                            <div class="publication-links">
+                                <a href="#" class="publication-link">Paper</a>
+                                <a href="#" class="publication-link">Supplementary</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="news" class="section">
+            <h2 class="section-title">News</h2>
+            <div class="news-grid">
+                <div class="news-item">
+                    <div class="news-date">Dec 2024</div>
+                    <div class="news-content">Our paper on adaptive neural networks was accepted at CVPR 2025!</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">Nov 2024</div>
+                    <div class="news-content">Gave an invited talk at the International Workshop on Computational Photography.</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">Oct 2024</div>
+                    <div class="news-content">Our survey paper on deep learning for computational photography was published in TPAMI.</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">Sep 2024</div>
+                    <div class="news-content">Two papers accepted at ICCV 2024 and NeurIPS 2024.</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">Aug 2024</div>
+                    <div class="news-content">Started a new collaboration with industry partners on mobile computational photography.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Service Section -->
+        <section id="service" class="section">
+            <h2 class="section-title">Academic Service</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Teaching</h3>
+                    <ul class="service-list">
+                        <li>Deep Learning for Computer Vision</li>
+                        <li>Machine Learning Fundamentals</li>
+                        <li>Computational Photography</li>
+                        <li>Advanced Neural Networks</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Reviewer</h3>
+                    <ul class="service-list">
+                        <li>CVPR, ICCV, ECCV</li>
+                        <li>NeurIPS, ICML, ICLR</li>
+                        <li>TPAMI, IJCV</li>
+                        <li>Nature Machine Intelligence</li>
+                        <li>IEEE TIP, IEEE TMM</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Workshops</h3>
+                    <ul class="service-list">
+                        <li>CVPR Workshop on Computational Photography</li>
+                        <li>ICCV Workshop on Mobile AI</li>
+                        <li>NeurIPS Workshop on ML for Systems</li>
+                        <li>ECCV Workshop on Advances in Image Manipulation</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Awards & Recognition</h3>
+                    <ul class="service-list">
+                        <li>Outstanding Paper Award, CVPR 2024</li>
+                        <li>Best Reviewer Award, ICCV 2023</li>
+                        <li>Young Researcher Award, 2023</li>
+                        <li>Google Research Scholar Program</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p>Email: <a href="mailto:your.email@domain.com" class="contact-email">your.email@domain.com</a></p>
+                <p>Office: Room 123, Computer Science Building</p>
+                <p>University/Institution Name</p>
+                <p>City, Country</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-note">
+                © 2024 Sabarinathan. All rights reserved. | Last updated: December 2024
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight active navigation item
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = '#5f6368';
+                if (link.getAttribute('href') === '#' + current) {
+                    link.style.color = '#1a73e8';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
